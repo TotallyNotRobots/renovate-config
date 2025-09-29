@@ -6,7 +6,7 @@
         ":configMigration"
     ],
     "prConcurrentLimit": 10,
-    "prHourlyLimit": 0,
+    "prHourlyLimit": 1,
     "dependencyDashboard": true,
     "dependencyDashboardTitle": "Renovate Dashboard 🤖",
     "suppressNotifications": [
