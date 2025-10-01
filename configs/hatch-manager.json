@@ -1,0 +1,9 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "poetry": {
+        "enabled": false
+    },
+    "pip_requirements": {
+        "enabled": false
+    },
+}
