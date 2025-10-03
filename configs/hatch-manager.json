@@ -6,4 +6,19 @@
     "pip_requirements": {
         "enabled": false
     },
+    "customManagers": [
+        {
+            "customType": "jsonata",
+            "fileFormat": "yaml",
+            "managerFilePatterns": [
+                "/^\\.github\\/workflows/.*\\.ya?ml$/"
+            ],
+            "matchStrings": [
+                "env.{\"currentValue\": HATCH_VERSION}"
+            ],
+            "depNameTemplate": "hatch",
+            "packageNameTemplate": "https://github.com/pypa/hatch",
+            "datasourceTemplate": "git-refs"
+        }
+    ]
 }
