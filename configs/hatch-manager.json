@@ -6,6 +6,13 @@
     "pip_requirements": {
         "enabled": false
     },
+    "packageRules": [
+        {
+            "matchManagers": ["github-actions"],
+            "matchPackageNames": ["pypa/hatch"],
+            "overrideDatasource": "git-refs"
+        }
+    ],
     "customManagers": [
         {
             "customType": "jsonata",
