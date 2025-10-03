@@ -10,6 +10,8 @@
         {
             "matchManagers": ["github-actions"],
             "matchPackageNames": ["pypa/hatch"],
+            "overridePackageName": "https://github.com/pypa/hatch",
+            "overrideDepName": "pypa/hatch",
             "overrideDatasource": "git-refs"
         }
     ],
