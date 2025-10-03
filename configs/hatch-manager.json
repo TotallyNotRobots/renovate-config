@@ -11,14 +11,14 @@
             "customType": "jsonata",
             "fileFormat": "yaml",
             "managerFilePatterns": [
-                "/^\\.github\\/workflows/.*\\.ya?ml$/"
+                "/^\\.github\\/workflows\\/.*\\.ya?ml$/"
             ],
             "matchStrings": [
                 "env.{\"currentValue\": HATCH_VERSION}"
             ],
-            "depNameTemplate": "hatch",
-            "packageNameTemplate": "https://github.com/pypa/hatch",
-            "datasourceTemplate": "git-refs"
+            "depNameTemplate": "pypa/hatch",
+            "extractVersionTemplate": "^hatch-v?(?<version>\\d+.*)$",
+            "datasourceTemplate": "github-releases"
         }
     ]
 }
