@@ -14,9 +14,6 @@
             "matchPackageNames": [
                 "/^pypa\\/hatch$/"
             ],
-            "matchUpdateTypes": [
-                "digest"
-            ],
             "overridePackageName": "https://github.com/pypa/hatch",
             "overrideDepName": "pypa/hatch",
             "overrideDatasource": "git-refs"
