@@ -6,6 +6,17 @@
     "pip_requirements": {
         "enabled": false
     },
+    "packageRules": [
+        {
+            "matchPackageNames": [
+                "/^https:\\/\\/github\\.com\\/pypa\\/hatch$/"
+            ],
+            "matchUpdateTypes": [
+                "digest"
+            ],
+            "enabled": true
+        }
+    ],
     "customManagers": [
         {
             "customType": "jsonata",
@@ -32,7 +43,7 @@
             ],
             "autoReplaceStringTemplate": "'{{depName}}@{{#if newDigest}}{{newDigest}}'{{#if newValue}}  # {{newValue}}{{/if}}{{/if}}{{#unless newDigest}}{{newValue}}'{{/unless}}",
             "datasourceTemplate": "git-refs",
-            "packageNameTemplate": "https://github.com/{{{depName}}}"
+            "packageNameTemplate": "https://github.com/pypa/hatch"
         }
     ]
 }
