@@ -27,8 +27,9 @@
                 "/(^|/)action\\.ya?ml$/"
             ],
             "matchStrings": [
-                "/^\\s+-?\\s+?uses\\s*: (?<replaceString>['\"]?(?<depName>(?<registryUrl>https:\\/\\/[.\\w-]+\\/)?(?<packageName>[\\w-]+\\/[.\\w-]+))(?<path>\\/.*)?@(?<currentValue>[^\\s'\"]+)['\"]?(?:(?<commentWhiteSpaces>\\s+)#\\s*(((?:renovate\\s*:\\s*)?(?:pin\\s+|tag\\s*=\\s*)?|(?:ratchet:[\\w-]+\\/[.\\w-]+)?)@?(?<tag>([\\w-]*[-/])?v?\\d+(?:\\.\\d+(?:\\.\\d+)?)?)|(?:ratchet:exclude)))?)/"
+                "/^\\s+-?\\s+?uses\\s*: (?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentValue>[^\\s'\"]+)['\"]?(?:(?<commentWhiteSpaces>\\s+)#\\s*(((?:renovate\\s*:\\s*)?(?:pin\\s+|tag\\s*=\\s*)?|(?:ratchet:[\\w-]+\\/[.\\w-]+)?)@?(?<tag>([\\w-]*[-/])?v?\\d+(?:\\.\\d+(?:\\.\\d+)?)?)|(?:ratchet:exclude)))?)/"
             ],
+            "autoReplaceStringTemplate": "'{{depName}}@{{#if newDigest}}{{newDigest}}'{{#if newValue}}  # {{newValue}}{{/if}}{{/if}}{{#unless newDigest}}{{newValue}}'{{/unless}}",
             "datasourceTemplate": "git-refs",
             "currentValueTemplate": "{{#if tag}}{{{tag}}}{{else}}{{{currentValue}}}{{/if}}"
         }
