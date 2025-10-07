@@ -6,19 +6,6 @@
     "pip_requirements": {
         "enabled": false
     },
-    "packageRules": [
-        {
-            "matchManagers": [
-                "/^github-actions$/"
-            ],
-            "matchPackageNames": [
-                "/^pypa\\/hatch$/"
-            ],
-            "overridePackageName": "https://github.com/pypa/hatch",
-            "overrideDepName": "pypa/hatch",
-            "overrideDatasource": "git-refs"
-        }
-    ],
     "customManagers": [
         {
             "customType": "jsonata",
@@ -32,6 +19,18 @@
             "depNameTemplate": "pypa/hatch",
             "extractVersionTemplate": "^hatch-v?(?<version>\\d+.*)$",
             "datasourceTemplate": "github-releases"
+        },
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$/",
+                "/(^|/)action\\.ya?ml$/"
+            ],
+            "matchStrings": [
+                "/^\\s+-?\\s+?uses\\s*: (?<replaceString>['\"]?(?<depName>(?<registryUrl>https:\\/\\/[.\\w-]+\\/)?(?<packageName>[\\w-]+\\/[.\\w-]+))(?<path>\\/.*)?@(?<currentValue>[^\\s'\"]+)['\"]?(?:(?<commentWhiteSpaces>\\s+)#\\s*(((?:renovate\\s*:\\s*)?(?:pin\\s+|tag\\s*=\\s*)?|(?:ratchet:[\\w-]+\\/[.\\w-]+)?)@?(?<tag>([\\w-]*[-/])?v?\\d+(?:\\.\\d+(?:\\.\\d+)?)?)|(?:ratchet:exclude)))?)/"
+            ],
+            "datasourceTemplate": "git-refs",
+            "currentValueTemplate": "{{#if tag}}{{{tag}}}{{else}}{{{currentValue}}}{{/if}}"
         }
     ]
 }
