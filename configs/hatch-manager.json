@@ -47,10 +47,10 @@
                 "/(^|/)action\\.ya?ml$/"
             ],
             "matchStrings": [
-                "\\s+(?:-\\s+)?uses\\s*:\\s*(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentDigest>[^\\s'\"]+)['\"]?\\s+#\\s*(?<currentValue>\\S+))",
-                "\\s+(?:-\\s+)?uses\\s*:\\s*(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentValue>[^\\s'\"]+)['\"]?)"
+                "(?<prefix> *(?:- +)?uses\\s*:\\s*)(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentDigest>[^\\s'\"]+)['\"]?\\s+#\\s*(?<currentValue>\\S+))",
+                "(?<prefix> *(?:- +)?uses\\s*:\\s*)(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentValue>[^\\s'\"]+)['\"]?)"
             ],
-            // "autoReplaceStringTemplate": "'{{depName}}@{{#if newDigest}}{{newDigest}}'{{#if newValue}}  # {{newValue}}{{/if}}{{/if}}{{#unless newDigest}}{{newValue}}'{{/unless}}",
+            "autoReplaceStringTemplate": "{{prefix}}'{{depName}}@{{#if newDigest}}{{newDigest}}'{{#if newValue}}  # {{newValue}}{{/if}}{{/if}}{{#unless newDigest}}{{newValue}}'{{/unless}}",
             "datasourceTemplate": "git-refs",
             "packageNameTemplate": "https://github.com/pypa/hatch",
             "currentValueTemplate": "install",
