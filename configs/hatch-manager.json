@@ -48,7 +48,7 @@
             "datasourceTemplate": "git-refs",
             "packageNameTemplate": "https://github.com/pypa/hatch",
             "currentValueTemplate": "install",
-            "versioningTemplate": "regex:install"
+            "versioningTemplate": "loose"
         }
     ]
 }
