@@ -24,6 +24,15 @@
                 "/pypa\\/hatch/"
             ],
             "pinDigests": true
+        },
+        {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchDepNames": [
+                "/pypa\\/hatch/"
+            ],
+            "enabled": false
         }
     ],
     "customManagers": [
@@ -51,7 +60,8 @@
             ],
             "autoReplaceStringTemplate": "'{{depName}}@{{#if newDigest}}{{newDigest}}'{{#if newValue}}  # {{newValue}}{{/if}}{{/if}}{{#unless newDigest}}{{newValue}}'{{/unless}}",
             "datasourceTemplate": "git-refs",
-            "currentValueTemplate": "{{#if tag}}{{{tag}}}{{else}}{{{currentValue}}}{{/if}}",
+            "currentDigestTemplate": "{{#if tag}}{{currentValue}}{{/if}}",
+            "currentValueTemplate": "install",
             "packageNameTemplate": "https://github.com/{{depName}}"
         }
     ]
