@@ -41,8 +41,8 @@
                 "/(^|/)action\\.ya?ml$/"
             ],
             "matchStrings": [
-                "^\\s+(?:-\\s+)?uses\\s*:\\s*(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentDigest>[^\\s'\"]+)['\"]?(?:\\s+#\\s*(?<currentValue>\\S+))?)",
-                "^\\s+(?:-\\s+)?uses\\s*:\\s*(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentValue>[^\\s'\"]+)['\"]?)"
+                "\\s+(?:-\\s+)?uses\\s*:\\s*(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentDigest>[^\\s'\"]+)['\"]?\\s+#\\s*(?<currentValue>\\S+))",
+                "\\s+(?:-\\s+)?uses\\s*:\\s*(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentValue>[^\\s'\"]+)['\"]?)"
             ],
             "autoReplaceStringTemplate": "'{{depName}}@{{#if newDigest}}{{newDigest}}'{{#if newValue}}  # {{newValue}}{{/if}}{{/if}}{{#unless newDigest}}{{newValue}}'{{/unless}}",
             "datasourceTemplate": "git-refs",
