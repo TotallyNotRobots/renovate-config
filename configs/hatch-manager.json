@@ -18,6 +18,12 @@
             ],
             "matchCurrentValue": "install",
             "enabled": true
+        },
+        {
+            "matchDepNames": [
+                "/pypa\\/hatch/"
+            ],
+            "pinDigests": true
         }
     ],
     "customManagers": [
