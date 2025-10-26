@@ -3,6 +3,11 @@
     "extends": [
         "config:best-practices",
         "helpers:pinGitHubActionDigests",
+        ":separateMajorReleases",
+        ":separateMultipleMajorReleases",
+        ":separateMultipleMinorReleases",
+        ":separatePatchReleases",
+        "docker:pinDigests",
         "github>TotallyNotRobots/renovate-config//configs/pr-meta.json",
         "github>TotallyNotRobots/renovate-config//configs/pr-manager-labels.json",
         "github>TotallyNotRobots/renovate-config//configs/pr-update-type-labels.json"
