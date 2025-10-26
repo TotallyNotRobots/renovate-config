@@ -7,24 +7,24 @@
         "enabled": false
     },
     "packageRules": [
-        {
-            "matchPackageNames": [
-                "/^https:\\/\\/github\\.com\\/pypa\\/hatch$/"
-            ],
-            "matchUpdateTypes": [
-                "digest",
-                "pinDigest",
-                "pin"
-            ],
-            "matchCurrentValue": "install",
-            "enabled": true
-        },
-        {
-            "matchDepNames": [
-                "/pypa\\/hatch/"
-            ],
-            "pinDigests": true
-        }
+        // {
+        //     "matchPackageNames": [
+        //         "/^https:\\/\\/github\\.com\\/pypa\\/hatch$/"
+        //     ],
+        //     "matchUpdateTypes": [
+        //         "digest",
+        //         "pinDigest",
+        //         "pin"
+        //     ],
+        //     "matchCurrentValue": "install",
+        //     "enabled": true
+        // },
+        // {
+        //     "matchDepNames": [
+        //         "/pypa\\/hatch/"
+        //     ],
+        //     "pinDigests": true
+        // }
     ],
     "customManagers": [
         {
@@ -39,22 +39,22 @@
             "depNameTemplate": "pypa/hatch",
             "extractVersionTemplate": "^hatch-v?(?<version>\\d+.*)$",
             "datasourceTemplate": "github-releases"
-        },
-        {
-            "customType": "regex",
-            "managerFilePatterns": [
-                "/(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$/",
-                "/(^|/)action\\.ya?ml$/"
-            ],
-            "matchStrings": [
-                "\\s+(?:-\\s+)?uses\\s*:\\s*(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentDigest>[^\\s'\"]+)['\"]?\\s+#\\s*(?<currentValue>\\S+))",
-                "\\s+(?:-\\s+)?uses\\s*:\\s*(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentValue>[^\\s'\"]+)['\"]?)"
-            ],
-            // "autoReplaceStringTemplate": "'{{depName}}@{{#if newDigest}}{{newDigest}}'{{#if newValue}}  # {{newValue}}{{/if}}{{/if}}{{#unless newDigest}}{{newValue}}'{{/unless}}",
-            "datasourceTemplate": "git-refs",
-            "packageNameTemplate": "https://github.com/pypa/hatch",
-            "currentValueTemplate": "install",
-            "versioningTemplate": "docker"
         }
+        // {
+        //     "customType": "regex",
+        //     "managerFilePatterns": [
+        //         "/(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$/",
+        //         "/(^|/)action\\.ya?ml$/"
+        //     ],
+        //     "matchStrings": [
+        //         "\\s+(?:-\\s+)?uses\\s*:\\s*(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentDigest>[^\\s'\"]+)['\"]?\\s+#\\s*(?<currentValue>\\S+))",
+        //         "\\s+(?:-\\s+)?uses\\s*:\\s*(?<replaceString>['\"]?(?<depName>pypa\\/hatch)@(?<currentValue>[^\\s'\"]+)['\"]?)"
+        //     ],
+        //     // "autoReplaceStringTemplate": "'{{depName}}@{{#if newDigest}}{{newDigest}}'{{#if newValue}}  # {{newValue}}{{/if}}{{/if}}{{#unless newDigest}}{{newValue}}'{{/unless}}",
+        //     "datasourceTemplate": "git-refs",
+        //     "packageNameTemplate": "https://github.com/pypa/hatch",
+        //     "currentValueTemplate": "install",
+        //     "versioningTemplate": "docker"
+        // }
     ]
 }
